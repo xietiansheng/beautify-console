@@ -1,5 +1,5 @@
 const esbuildConfig = () => require('esbuild').buildSync({
-  entryPoints: ['src/index.ts','src/utils/code-util.ts'],
+  entryPoints: ['src/index.ts'],
   outdir: 'dist',
   platform: "node",
   format: "cjs"
