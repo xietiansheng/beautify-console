@@ -18,7 +18,7 @@ export function BeautifyConsole(options?: Options) {
       return pre;
     }, ""),
     ...defaultConfig.map(item => item.style),
-  ];
+  ].reverse();
   return {
     name: "beautify-console",
     enforce: "post",
@@ -36,7 +36,7 @@ export function BeautifyConsole(options?: Options) {
           const targetCalleeName = ["log", "info", "error", "debug"].map(item => `console.${ item }`);
           const calleeName = path.get("callee").toString();
           if (targetCalleeName.includes(calleeName)) {
-            configList.reverse().forEach(item => {
+            configList.forEach(item => {
               path.node.arguments.unshift(stringLiteral(item));
             });
           }
